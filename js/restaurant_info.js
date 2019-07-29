@@ -82,12 +82,14 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
     const name = document.getElementById('restaurant-name');
     name.innerHTML = restaurant.name;
+    name.tabIndex = 1;
 
     const address = document.getElementById('restaurant-address');
     address.innerHTML = restaurant.address;
 
     const image = document.getElementById('restaurant-img');
-    image.className = 'restaurant-img'
+    image.className = 'restaurant-img';
+    image.alt = restaurant.name + ' restaurant image';
     image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
     const cuisine = document.getElementById('restaurant-cuisine');
@@ -112,12 +114,16 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
         const day = document.createElement('td');
         day.innerHTML = key;
         row.appendChild(day);
+        day.tabIndex = 1;
 
         const time = document.createElement('td');
         time.innerHTML = operatingHours[key];
         row.appendChild(time);
+        time.tabIndex = 1;
 
         hours.appendChild(row);
+        hours.tabIndex = 1;
+
     }
 }
 
@@ -128,7 +134,10 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
     const container = document.getElementById('reviews-container');
     const title = document.createElement('h2');
     title.innerHTML = 'Reviews';
+    title.setAttribute("role", "title");
+    title.setAttribute("aria-label", "reviews");
     container.appendChild(title);
+    title.tabIndex = 1;
 
     if (!reviews) {
         const noReviews = document.createElement('p');
@@ -151,18 +160,22 @@ createReviewHTML = (review) => {
     const name = document.createElement('p');
     name.innerHTML = review.name;
     li.appendChild(name);
+    name.tabIndex = 1;
 
     const date = document.createElement('p');
     date.innerHTML = review.date;
     li.appendChild(date);
+    date.tabIndex = 1;
 
     const rating = document.createElement('p');
     rating.innerHTML = `Rating: ${review.rating}`;
     li.appendChild(rating);
+    rating.tabIndex = 1;
 
     const comments = document.createElement('p');
     comments.innerHTML = review.comments;
     li.appendChild(comments);
+    comments.tabIndex = 1;
 
     return li;
 }
@@ -175,6 +188,7 @@ fillBreadcrumb = (restaurant = self.restaurant) => {
     const li = document.createElement('li');
     li.innerHTML = restaurant.name;
     breadcrumb.appendChild(li);
+    li.tabIndex = 1;
 }
 
 /**

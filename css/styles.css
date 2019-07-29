@@ -424,6 +424,19 @@ img {
     }
 }
 
+.skip {
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    font-size: medium;
+    color: #252831;
+}
+
+.skip:focus,
+.skip:hover {
+    color: red;
+}
+
 
 /* Table Screens */
 
