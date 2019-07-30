@@ -1,6 +1,5 @@
-# 
-Restaurant Reviews App
-My Fourth project at Misk-Udacity - Front-End Web Developer Nanodegree Program
+# Restaurant Reviews App
+My Fifth project at Misk-Udacity - Front-End Web Developer Nanodegree Program
 
 # Original Code
 https://github.com/udacity/mws-restaurant-stage-1
